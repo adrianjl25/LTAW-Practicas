@@ -9,7 +9,8 @@ Esta es otra línea.
 
 ... Un tercer cambio
 
-![](Ejercicio2-img1.gif)
+![](Ejercicio2-img1.gif)  
+
 ![](evangelion-asuka-langley.gif)
 ![](asuka.gif)
 ![](bailar-uron.gif)
