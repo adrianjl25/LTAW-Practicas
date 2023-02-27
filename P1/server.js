@@ -41,4 +41,4 @@ const server = http.createServer((req, res)=>{
 
 server.listen(PUERTO);
 
-console.log("¡Abriendo mi tienda!. Escuchando en puerto: " + PUERTO);
+console.log("Abriendo mi tienda!. Escuchando en puerto: " + PUERTO);
