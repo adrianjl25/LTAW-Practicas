@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 
-const PUERTO = 8088;
+const PUERTO = 8888;
 
 //-- Texto HTML de la página principal
 
@@ -41,4 +41,4 @@ const server = http.createServer((req, res)=>{
 
 server.listen(PUERTO);
 
-console.log("Ejemplo 7. Escuchando en puerto: " + PUERTO);
+console.log("¡Abriendo mi tienda!. Escuchando en puerto: " + PUERTO);
