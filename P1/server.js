@@ -3,42 +3,33 @@ const fs = require('fs');
 
 const PUERTO = 8888;
 
-//-- Texto HTML de la página principal
+const server = http.createServer((req, res) => {
+  let url = new URL (req.url, 'http://' + req.headers['host']);
 
-const data = fs.readFileSync('server.html','utf8');
-const pagerror = fs.readFileSync('error.html','utf8');
+  let page = "";
 
+  //Se llama a la página principal por defecto
+   if (url.pathname != "/"){
+       page += "."+ url.pathname
+     } else{
+         page += "server.html"
+     }
 
-const server = http.createServer((req, res)=>{
-    console.log("Petición recibida!");
+  fs.readFile(page, function(err, data) {
 
-    //-- Valores de la respuesta por defecto
-    let code = 200;
-    let code_msg = "OK";
-    let page = data;
+    if (err) {
+      // Página de error
+      res.writeHead(404, {'Content-Type': 'text/html'});
+      return fs.createReadStream('error.html').pipe(res)
+    } 
 
-    //-- Analizar el recurso
-    //-- Construir el objeto url con la url de la solicitud
-    const url = new URL(req.url, 'http://' + req.headers['host']);
-    console.log(url.pathname);
-
-    //-- Cualquier recurso que no sea la página principal
-    //-- genera un error
-    if (url.pathname != '/') {
-        code = 404;
-        code_msg = "Not Found";
-        page = pagerror;
-    }
-
-    //-- Generar la respusta en función de las variables
-    //-- code, code_msg y page
-    res.statusCode = code;
-    res.statusMessage = code_msg;
-    res.setHeader('Content-Type','text/html');
-    res.write(page);
+    res.write(data);
     res.end();
+  });
+
+
 });
 
 server.listen(PUERTO);
 
-console.log("Abriendo mi tienda!. Escuchando en puerto: " + PUERTO);
+console.log("¡Abriendo mi tienda!.Escuchando en puerto: " + PUERTO);

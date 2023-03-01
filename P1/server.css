@@ -1,3 +1,58 @@
+@font-face{
+    font-family: "darksouls";
+    src: url(OptimusPrinceps.ttf);
+}
+
 body{
     background-image:url('Fotos/fondo.png');
+    float: center;
+}
+
+button{
+    margin-top: -40px;
+    border-color: rgb(0, 219, 219);
+    border-radius: 5px;
+}
+
+h1{
+    font-family: "darksouls";
+}
+
+#titulo{
+    padding-top: 5px;
+    padding-left: 5px;
+    border-radius: 10px;
+    border-width: 1px;
+    font-family: "darksouls";
+    font-size: 100px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.Juegos{
+    width: 100%;
+    padding-left: 0px;
+    
+}
+
+.productos{
+    width: 1500px;
+    padding: 50px 30px;
+    /*  position: absolute; */
+    margin: auto;
+    /* transform: translate(-50%, -50%);*/
+    background-color: rgba(53, 53, 53,0.9);
+    /*  top: 50%;
+    left: 50%;
+*/    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    margin-top: -50px;
+}
+
+#Bloodborne{
+    padding-left: 10%;
+}
+
+#EldenRing{
+    padding-left: 10%;
 }
