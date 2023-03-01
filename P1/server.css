@@ -31,8 +31,7 @@ h1{
 
 .Juegos{
     width: 100%;
-    padding-left: 0px;
-    
+    padding-left: 0px;    
 }
 
 .productos{
@@ -50,9 +49,15 @@ h1{
 }
 
 #Bloodborne{
-    padding-left: 10%;
+    padding-left: 5%;
 }
 
 #EldenRing{
-    padding-left: 10%;
+    padding-left: 5%;
+}
+#Kingdom{
+    padding-left: 5%;
+}
+#Zelda{
+    padding-left: 5%;
 }
