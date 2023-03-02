@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
    if (url.pathname != "/"){
        page += "."+ url.pathname
      } else{
-         page += "server.html"
+         page += "tienda.html"
      }
 
   fs.readFile(page, function(err, data) {
