@@ -2,6 +2,67 @@ body{
     background-image:url('Fotos/FondoZelda.png');
 }
 
+a{
+    
+    font-size: 25px;
+}
+
+h1{
+    font-family: "darksouls";
+    color: rgb(255, 255, 255);
+    margin-left: 650px;
+}
+
+#list{
+    font-family: "darksouls";
+    color: rgb(0, 0, 0);
+    margin-left: 500px;
+    font-size: 20px;
+}
+
+#titulo{
+    text-decoration: underline;
+}
+
+#precio{
+    margin-left: 900px;
+}
+
+
+#Bio{
+    width: 1500px;
+    padding: 10px 30px;
+    padding-bottom: 1px;
+    /*  position: absolute; */
+    margin: auto;
+    /* transform: translate(-50%, -50%);*/
+    background-color: rgba(148, 104, 113, 0.9);
+    /*  top: 50%;
+    left: 50%;
+*/    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    margin-top: 100px;
+    color: rgb(0, 0, 0);
+    
+}
+
+#zelda{
+
+   position: absolute;
+}
+
+.sinopsis{
+    color: rgb(255, 255, 255);
+    display: flex;
+    /*text-align: right;*/
+    margin-left: 500px;
+    font-family: 'darksouls';
+    border: 2px;
+    border-color: aquamarine;
+    border-radius: 2px;
+}
+
+
 .btn{
     cursor: pointer;
     font-size: 100%;
@@ -45,6 +106,7 @@ body{
     line-height: 1.5;
     transform: translateX(-400px);
     transition: transform 1s ease-in-out;
+    z-index: 1;
 }
 
 .rules.show{
