@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 
-const PUERTO = 8888;
+const PUERTO = 9000;
 
 const server = http.createServer((req, res) => {
   let url = new URL (req.url, 'http://' + req.headers['host']);
