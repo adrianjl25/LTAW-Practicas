@@ -7,17 +7,34 @@ body{
     background-image:url('Fotos/FondoBioshock.jpg');
 }
 
+
+a{
+    text-decoration: none;
+    font-size: 25px;
+}
+
 h1{
     font-family: "darksouls";
     color: rgb(0, 0, 0);
     margin-left: 650px;
 }
 
+#list{
+    font-family: "darksouls";
+    color: rgb(0, 0, 0);
+    margin-left: 500px;
+    font-size: 20px;
+}
+
+#precio{
+    margin-left: 900px;
+}
+
 
 #Bio{
     width: 1500px;
     padding: 10px 30px;
-    padding-bottom: 300px;
+    padding-bottom: 250px;
     /*  position: absolute; */
     margin: auto;
     /* transform: translate(-50%, -50%);*/
@@ -26,14 +43,14 @@ h1{
     left: 50%;
 */    border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-    margin-top: 200px;
+    margin-top: 100px;
     color: rgb(0, 0, 0);
+    
 }
 
 #Bioshock{
-    border-color: aquamarine;
-    display: flex;
-    position: absolute;
+
+   position: absolute;
 }
 
 .sinopsis{
@@ -91,6 +108,7 @@ h1{
     line-height: 1.5;
     transform: translateX(-400px);
     transition: transform 1s ease-in-out;
+    z-index: 1;
 }
 
 .rules.show{
