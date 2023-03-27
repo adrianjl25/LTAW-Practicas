@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferre Games</title>
+    <link rel="icon" type="image/x-icon" href="Fotos/mando2.png">
+    <link rel="stylesheet" href="tienda.css">
+    <script src="slider.js" defer></script>
+</head>
+<body>
+    <!-- Menú deslizante -->
+    <button id="rules-btn" class="btn rules-btn">Menú</button>
+
+    <div id="rules" class="rules">
+        <h2 id="title">Menú de navegación.</h1>
+        <ul id="lista">
+            <a href="tienda.html" class="menu">Pagina principal.</a>
+            <li class="menu">Productos <br>
+                <a href="play.html" class="menu">Juegos de PlayStation</a><br>
+                <a href="pc.html" class="menu">Juegos de Pc</a><br>
+                <a href="switch.html" class="menu">Juegos de Switch</a><br> 
+            </li>
+            <a href="nosotros.html" class="menu">Sobre nosotros.</a><br>
+            <a href="contacto.html" class="menu">Contacto</a> <br>
+            <img src="Fotos/FerreGames.jpg" alt="Ferre Games" id="Ferre" width="60%">
+
+            
+        </ul>
+        <button id="close-btn" class="btn">Cerrar</button><br>
+    </div>
+
+    
+    <h1 id="titulo">Ferre Games </h1>
+    <div class="productos">
+        <h2>Bienvenido a Ferre Games.</h2>
+        <h3>Aquí encontrarás videojuegos de diferentes consolas al mejor precio del mercado.</h3>
+        <h1>Plataformas:</h1>
+        <div class="Juegos">
+            <table>
+                <tr>
+                    <img onclick="window.location.href='play.html'" src="Fotos/play.png" id="Play" width="16%">
+                    <img onclick="window.location.href='pc.html'" src="Fotos/Pc.png" id="Pc" width="16%" padding-left="10%">
+                    <img onclick="window.location.href='switch.html'" src="Fotos/Switch.png" id="Switch" width="16%" padding-left="10%">
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+

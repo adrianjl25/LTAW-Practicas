@@ -1,0 +1,131 @@
+body{
+    background-image:url('Fotos/FondoBloodborne.jpg');
+}
+
+a{
+    
+    font-size: 25px;
+}
+
+h1{
+    font-family: "darksouls";
+    color: rgb(255, 255, 255);
+    margin-left: 650px;
+}
+
+#list{
+    font-family: "darksouls";
+    color: rgb(0, 0, 0);
+    margin-left: 500px;
+    font-size: 20px;
+}
+
+#titulo{
+    text-decoration: underline;
+}
+
+#precio{
+    margin-left: 900px;
+}
+
+
+#Bio{
+    width: 1500px;
+    padding: 10px 30px;
+    padding-bottom: 200px;
+    /*  position: absolute; */
+    margin: auto;
+    /* transform: translate(-50%, -50%);*/
+    background-color: rgba(71, 83, 97,0.9);
+    /*  top: 50%;
+    left: 50%;
+*/    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    margin-top: 100px;
+    color: rgb(0, 0, 0);
+    
+}
+
+#Bloodborne{
+
+   position: absolute;
+}
+
+.sinopsis{
+    color: rgb(255, 255, 255);
+    display: flex;
+    /*text-align: right;*/
+    margin-left: 500px;
+    font-family: 'darksouls';
+    border: 2px;
+    border-color: aquamarine;
+    border-radius: 2px;
+}
+
+
+.btn{
+    cursor: pointer;
+    font-size: 100%;
+    border: 0;
+    padding: 10px 20px;
+    margin-top: 50px;
+    background: rgb(241,119,87);
+    color: rgb(7, 7, 7);
+    border-radius: 5px;
+    font-family: 'kingdom';
+}
+
+.btn:focus{
+    outline: 0;
+}
+
+.btn:hover{
+    background: #222;
+}
+
+.btn:active{
+    transform: scale(0.98);
+}
+
+.rules-btn{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    
+}
+
+.rules{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:rgba(53,53,53, 0.9);
+    color: rgb(255, 255, 255);
+    min-height: 100vh;
+    max-width: 100%;
+    width: 400px;
+    line-height: 1.5;
+    transform: translateX(-400px);
+    transition: transform 1s ease-in-out;
+    z-index: 1;
+}
+
+.rules.show{
+    transform: translateX(0);
+}
+#lista{
+    font-family: 'darksouls';
+}
+#close-btn{
+    margin-left: 5px;
+}
+
+.menu{
+    background-color: rgba(53, 53, 53, 0);
+    padding: 15px;
+    color: white;
+    margin-top: 30px;
+    text-decoration: none;
+    font-size: 30px;
+    cursor: pointer;
+    
+}
