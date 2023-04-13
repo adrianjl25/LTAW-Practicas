@@ -15,6 +15,14 @@ const server = http.createServer((req, res) => {
          page += "tienda.html"
      }
 
+
+
+ //-- Leer los parámetros
+ //let usuario = url.searchParams.get('usuario');
+ //let contraseña = url.searchParams.get('password');
+ //console.log(" Usuario: " + usuario);
+ //console.log(" Contraseña: " + contraseña);
+
   fs.readFile(page, function(err, data) {
 
     if (err) {
