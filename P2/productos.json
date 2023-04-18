@@ -1,0 +1,40 @@
+{
+    "productos": [
+      {
+        "id": "Bioshock",
+        "stock": 5,
+        "precio": "19.99€"
+      },
+      {
+        "id": "Elden Ring",
+        "stock": 5,
+        "precio": "59.99€"
+      },
+      {
+        "id": "Bloodborne",
+        "stock": 5,
+        "precio": "9.99€"
+      },
+      {
+        "id": "Kingdom Hearts",
+        "stock": 5,
+        "precio": "24.99€"
+      },
+      {
+        "id": "Fifa",
+        "stock": 5,
+        "precio": "65.99€"
+      },
+      {
+        "id": "Zelda BOTW",
+        "stock": 5,
+        "precio": "65.99€"
+      },
+      {
+        "id": "Zelda SW",
+        "stock": 5,
+        "precio": "55.99€"
+      }
+    ]
+    
+}

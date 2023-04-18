@@ -3,6 +3,8 @@ const fs = require('fs');
 
 const PUERTO = 9000;
 
+const productos = fs.readFileSync('productos.json');
+
 const server = http.createServer((req, res) => {
   let url = new URL (req.url, 'http://' + req.headers['host']);
 
