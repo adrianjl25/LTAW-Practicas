@@ -46,8 +46,8 @@ io.on('connect', (socket) => {
  if (msg.startsWith("/")) {
     //-- Separar el comando y los argumentos (si los hay)
     const parts = msg.split(" ");
-    const command = parts[0];
-    const argument = parts[1];
+    const command = parts[1];
+    const argument = parts[2];
 
 
   switch(command) {
