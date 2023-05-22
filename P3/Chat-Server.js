@@ -18,7 +18,7 @@ const io = socket(server);
 //-------- PUNTOS DE ENTRADA DE LA APLICACION WEB
 //-- Definir el punto de entrada principal de mi aplicación web
 app.get('/', (req, res) => {
-  res.send('Bienvenido a mi aplicación Web!!!' + '<p><a href="/Chat.html">Test</a></p>');
+  res.send('Bienvenido al chat Kaisser' + '<p><a href="/Chat.html">¡Entra a chatear!</a></p>');
 });
 
 //-- Esto es necesario para que el servidor le envíe al cliente la
@@ -42,12 +42,41 @@ io.on('connect', (socket) => {
   //-- Mensaje recibido: Reenviarlo a todos los clientes conectados
   socket.on("message", (msg)=> {
     console.log("Mensaje Recibido!: " + msg.blue);
+ //-- Si el mensaje comienza con un "/", se interpreta como un comando
+ if (msg.startsWith("/")) {
+    //-- Separar el comando y los argumentos (si los hay)
+    const parts = msg.split(" ");
+    const command = parts[0];
+    const argument = parts[1];
 
-    //-- Reenviarlo a todos los clientes conectados
-    io.send(msg);
+
+  switch(command) {
+    case "/help":
+      socket.send("Comandos disponibles: /help, /list, /hello, /date");
+      break;
+    case "/list":
+      socket.send("Usuarios conectados: " + io.engine.clientsCount);
+      break;
+    case "/hello":
+      const user = argument || "desconocido"
+      socket.send(`¡Hola ${user}!`);
+      break;
+    case "/date":
+      const date = new Date().toLocaleDateString();
+      socket.send("La fecha actual es: " + date);
+      break;
+
+    default:
+      socket.send("Este comando no existe.Por favor, inténtalo de nuevo.");
+      break;
+  }
+  }else {
+  //-- Reenviar mensaje a todos los clientes conectados
+  io.send(msg);
+}
   });
-
 });
+
 
 //-- Lanzar el servidor HTTP
 //-- ¡Que empiecen los juegos de los WebSockets!
