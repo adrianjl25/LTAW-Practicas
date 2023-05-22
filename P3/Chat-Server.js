@@ -18,7 +18,7 @@ const io = socket(server);
 //-------- PUNTOS DE ENTRADA DE LA APLICACION WEB
 //-- Definir el punto de entrada principal de mi aplicación web
 app.get('/', (req, res) => {
-  res.send('Bienvenido al chat Kaisser' + '<p><a href="/Chat.html">¡Entra a chatear!</a></p>');
+  res.send('Bienvenido al chat de NERV' + '<p><a href="/Chat.html">¡Entra a chatear!</a></p>');
 });
 
 //-- Esto es necesario para que el servidor le envíe al cliente la
