@@ -43,11 +43,11 @@ io.on('connect', (socket) => {
   socket.on("message", (msg)=> {
     console.log("Mensaje Recibido!: " + msg.blue);
  //-- Si el mensaje comienza con un "/", se interpreta como un comando
- if (msg.startsWith("/")) {
+ if (msg.split(":")[1]) {
     //-- Separar el comando y los argumentos (si los hay)
-    const parts = msg.split(" ");
-    const command = parts[1];
-    const argument = parts[2];
+    const command = msg.split(":")[1];
+    const argument = msg.split(":")[0];
+    console.log(command);
 
 
   switch(command) {
