@@ -3,6 +3,7 @@ const socket = require('socket.io');
 const http = require('http');
 const express = require('express');
 const colors = require('colors');
+const ip = require('ip');
 
 
 //-- Cargar el módulo de electron
@@ -21,8 +22,17 @@ electron.app.on('ready', ()=>{
       contextIsolation: false,
     }
   })
-  win.setMenuBarVisibility(false)
+  //win.setMenuBarVisibility(false)
   win.loadFile("index.html")
+  win.on('ready-to-show', () => {
+    win.webContents.send('ip', 'http://' + ip.address() + ':' + PUERTO);
+  });
+  electron.ipcMain.handle("button", async(evento, mensaje) => {
+    console.log(mensaje);
+    io.send("Bienvenido", mensaje);
+    win.webContents.send("receive", "Bienvenido");
+  }
+  );
     console.log("Evento Ready!")
 });
 
@@ -65,39 +75,33 @@ io.on('connect', (socket) => {
   socket.on("message", (msg)=> {
     console.log("Mensaje Recibido!: " + msg.blue);
  //-- Si el mensaje comienza con un "/", se interpreta como un comando
- if (msg.split(":")[1]) {
-    //-- Separar el comando y los argumentos (si los hay)
-    const command = msg.split(":")[1];
-    const argument = msg.split(":")[0];
-    console.log(command);
-
-
-  switch(command) {
-    case "/help":
-      socket.send("Comandos disponibles: /help, /list, /hello, /date");
-      break;
-    case "/list":
-      socket.send("Usuarios conectados: " + io.engine.clientsCount);
-      break;
-    case "/hello":
-      const user = argument || "desconocido"
-      socket.send(`¡Hola ${user}!`);
-      break;
-    case "/date":
-      const date = new Date().toLocaleDateString();
-      socket.send("La fecha actual es: " + date);
-      break;
-
-    default:
-      socket.send("Este comando no existe.Por favor, inténtalo de nuevo.");
-      break;
-  }
-  }else {
+ const command = msg.split(":")[1];
+ if (command) {
+    switch(command) {
+      case "/help":
+        socket.send("Comandos disponibles: /help, /list, /hello, /date");
+        break;
+      case "/list":
+        socket.send("Usuarios conectados: " + io.engine.clientsCount);
+        break;
+      case "/hello":
+        const user = argument || "desconocido"
+        socket.send(`¡Hola ${user}!`);
+        break;
+      case "/date":
+        const date = new Date().toLocaleDateString();
+        socket.send("La fecha actual es: " + date);
+        break;
+      }
+  }else if(msg != command){
   //-- Reenviar mensaje a todos los clientes conectados
   io.send(msg);
+  win.webContents.send("receive", msg)
 }
   });
 });
+
+
 
 
 //-- Lanzar el servidor HTTP

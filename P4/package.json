@@ -4,13 +4,14 @@
     "colours": "^0.6.0-2",
     "electron": "^24.3.1",
     "express": "^4.18.2",
+    "ip": "^1.1.8",
     "socket.io": "^4.6.1",
     "websocket": "^1.0.34"
   },
   "name": "mi-electron-app",
-    "description": "Estas es mi primera aplicación de escritorio en Electron",
-    "version": "0.1.0",
-    "main": "main.js",
+  "description": "Estas es mi primera aplicación de escritorio en Electron",
+  "version": "0.1.0",
+  "main": "main.js",
   "scripts": {
     "start": "electron ."
   }
