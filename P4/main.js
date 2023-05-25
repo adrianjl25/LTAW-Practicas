@@ -36,7 +36,7 @@ electron.app.on('ready', ()=>{
     console.log("Evento Ready!")
 });
 
-const PUERTO = 8080;
+const PUERTO = 9000;
 
 //-- Crear una nueva aplciacion web
 const app = express();
@@ -65,39 +65,50 @@ app.use(express.static('public'));
 io.on('connect', (socket) => {
   
   console.log('** NUEVA CONEXIÓN **'.yellow);
+  win.webContents.send("conect", io.engine.clientsCount);
 
   //-- Evento de desconexión
   socket.on('disconnect', function(){
     console.log('** CONEXIÓN TERMINADA **'.yellow);
+    win.webContents.send("conect", io.engine.clientsCount);
   });  
 
   //-- Mensaje recibido: Reenviarlo a todos los clientes conectados
   socket.on("message", (msg)=> {
     console.log("Mensaje Recibido!: " + msg.blue);
  //-- Si el mensaje comienza con un "/", se interpreta como un comando
- const command = msg.split(":")[1];
- if (command) {
-    switch(command) {
-      case "/help":
-        socket.send("Comandos disponibles: /help, /list, /hello, /date");
-        break;
-      case "/list":
-        socket.send("Usuarios conectados: " + io.engine.clientsCount);
-        break;
-      case "/hello":
-        const user = argument || "desconocido"
-        socket.send(`¡Hola ${user}!`);
-        break;
-      case "/date":
-        const date = new Date().toLocaleDateString();
-        socket.send("La fecha actual es: " + date);
-        break;
-      }
-  }else if(msg != command){
+  if (msg.split("/")[1]) {
+    //-- Separar el comando y los argumentos (si los hay)
+    const command = msg.split("/")[1];
+    const argument = msg.split(":")[0];
+    console.log(command);
+
+
+  switch(command) {
+    case "help":
+      socket.send("Comandos disponibles: /help, /list, /hello, /date");
+      break;
+    case "list":
+      socket.send("Usuarios conectados: " + io.engine.clientsCount);
+      break;
+    case "hello":
+      const user = argument|| "Anónimo"
+      socket.send(`¡Hola ${user}!`);
+      break;
+    case "date":
+      const date = new Date().toLocaleDateString();
+      socket.send("La fecha actual es: " + date);
+      break;
+
+    default:
+      socket.send("Este comando no existe.")
+      break;
+  }
+  }else{
   //-- Reenviar mensaje a todos los clientes conectados
-  io.send(msg);
-  win.webContents.send("receive", msg)
-}
+    io.send(msg);
+    win.webContents.send("receive", msg)
+  }
   });
 });
 
