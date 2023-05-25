@@ -30,8 +30,8 @@ msg_entry.onchange = () => {
   msg_entry.value = "";
 }
 
-msg_user.onchange = () => {
-    if(msg_user.value){
-      user = msg_user.value;
-    }
-}
+// msg_user.onchange = () => {
+//     if(msg_user.value){
+//       user = msg_user.value;
+//     }
+// }
